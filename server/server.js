@@ -20,9 +20,15 @@ io.on('connection', (socket) => {
     console.log('New user connected');
 
     socket.on('join', (params, callback) => {
+        params.room = params.room.toLowerCase();
         if (!isRealString(params.name) || !isRealString(params.room)) {
             return callback('Name and room name are required.');
         };
+
+        if (users.getUserList(params.room).filter((user) => user === params.name).length) {
+            return callback(`User ${params.name} already exists`);
+        };
+       
 
         socket.join(params.room);
         users.removeUser(socket.id);

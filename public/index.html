@@ -19,7 +19,11 @@
             </div>
             <div class="form-field">
                 <label for="">Room name</label>
-                <input type="text" name="room">
+                <input type="text" autocomplete="off"  name="room" list="roomlist">
+                <datalist id="roomlist">
+                    <option value="Boston">
+                    <option value="Cambridge">
+                </datalist>
             </div>
             <div class="form-field">
                 <button>Join</button>
