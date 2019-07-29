@@ -16,8 +16,14 @@ var users = new Users();
 
 app.use(express.static(publicPath));
 
+
+
 io.on('connection', (socket) => {
     console.log('New user connected');
+
+    socket.on('joinIndex', (callback) => {
+        console.log('asdsafadsf');
+    })
 
     socket.on('join', (params, callback) => {
         params.room = params.room.toLowerCase();
