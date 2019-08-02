@@ -66,4 +66,9 @@ describe('Users', () => {
         var userList = users.getUserList('React Course');
         expect(userList).toEqual(['Jen']);
     });
+
+    it('Should return room names', () => {
+        var roomList = users.getRoomList();
+        expect(roomList.length).toBe(2);
+    })
 });
